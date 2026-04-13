@@ -1,8 +1,10 @@
-#getting input from user for my project . System Health !!
-ram_input=input("enter current ram usage : ")
-ram_usage=int(ram_input)
+ #Automation : Task Processing Simulation 
+pending_tasks = ["clean the room","clean the desk","update windows","practice DSA"]
+ 
+print("Starting Daily tasks varification...")
 
-if ram_usage > 7 :
-    print ("high ram Usage !! , close background apps")
-else :
-    print("All good")
+#using for loop 
+for task in pending_tasks:
+    print( f"Checking task : {task}...[completed]")
+    
+print("All scheduled tasks for today have been varified !")    
