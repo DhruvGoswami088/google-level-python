@@ -1,10 +1,8 @@
-# Project: Environment Configuration Verification
-# Status: Active
+#getting input from user for my project . System Health !!
+ram_input=input("enter current ram usage : ")
+ram_usage=int(ram_input)
 
-def verify_environment():
-    """Verifies that the Python environment is correctly configured."""
-    status = "System Ready"
-    print(f"Deployment Status: {status}")
-
-if __name__ == "__main__":
-    verify_environment()
+if ram_usage > 7 :
+    print ("high ram Usage !! , close background apps")
+else :
+    print("All good")
