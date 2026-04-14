@@ -95,4 +95,22 @@ my_cloud_node = Cloudserver("Cloude_node_1","10.0.0.5","Ahmedabad")
 my_cloud_node.start_server()
 
 # And its new specialized actions !!!
-my_cloud_node.deploy_app("Sakura_V1")
+my_cloud_node.deploy_app("Sakura_V1") 
+
+#External Packages (supply line management) : using 'requests' to interact with APIs
+import requests # basically recruiting the external tool
+
+def check_internet_connectivity():
+    """uses the requests package to varify the system's online status"""
+    try:
+        #here im trying to reach a standard professional endpoint
+        response = requests.get("https://api.github.com", timeout=5)
+        if response.status_code == 200:
+            print("Connection is active : Access to GitHub API is active.")
+        else:
+            print("Internet connection is inactive.")
+    except Exception as e:
+        print(f"Connectivity error : System is offline or unreachable.{e}")
+
+if __name__ == "__main__":
+     check_internet_connectivity()
