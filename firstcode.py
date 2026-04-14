@@ -26,3 +26,22 @@ with open("system_log.txt","r") as log_file:
      log_content = log_file.read()
      print("----- Retrieved log data -----")
      print(log_content)
+
+#OOP : creating a proffessional user structure
+class system_user:
+     def __init__(self,username,role):
+          #'blueprint' for every user
+           self.username = username
+           self.role = role
+
+     def display_info(self):
+    # a mathod to display user info 
+           print(f"User: {self.username} / role: {self.role}")
+
+#creating actual objects from the blueprint
+admin_user = system_user("admin","administrator")                
+dev_user = system_user("devops","developer")
+
+#using the objects 
+admin_user.display_info()
+dev_user.display_info()
