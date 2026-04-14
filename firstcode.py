@@ -45,3 +45,31 @@ dev_user = system_user("devops","developer")
 #using the objects 
 admin_user.display_info()
 dev_user.display_info()
+
+#Blueprint for a proffessional server object
+#getting a deep dive into OOP concepts like inheritance and encapsulation
+class Server:
+     def __init__ (self, name, ip_address):
+ #Attributes : these are the "data" the objects holds
+            self.name = name 
+            self.ip_address = ip_address
+            self.is_running = False  #default state of the server 
+
+     #Methods : these are the actions the objects can perform
+     def start_server(self):       
+            self.is_running = True
+            print(f"{self.name} has started.")
+
+     def get_status(self):
+            status = "running" if self.is_running else "stopped"
+            print(f"{self.name } is currently {status}.")
+
+#creating different objects from the same blueprint
+web_server = Server("Web Server","192.168.1.10")       
+db_server = Server("Database Server","192.168.1.20")
+
+#interacting with the objects
+web_server.start_server()
+web_server.get_status()
+db_server.get_status() #this will still be offline
+
