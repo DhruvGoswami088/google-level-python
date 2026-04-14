@@ -1,4 +1,7 @@
 # Dictionaries : Managing System Configuration
+from xmlrpc import server
+
+
 System_config = {"server_name" : "host - 1",
                  "uptime_days" : 45 ,
                  "is_active" : True ,
@@ -73,3 +76,23 @@ web_server.start_server()
 web_server.get_status()
 db_server.get_status() #this will still be offline
 
+#Advanced OOP : Inheritance and Encapsulation
+class Cloudserver(Server):
+     def __init__(self,name,ip_address, region):
+           # i will bring 'super()' to get everythin from the parent class (server) and then add my own attribute
+        super(). __init__(name,ip_address)
+        self.region = region
+        self._access_key = "SECURE_KEY_123" # Encapsulated (private) data
+
+     def deploy_app(self, app_name):
+         #this action is specialized and only cloud servers can do it
+         print(f"Deploying {app_name} to {self.name} in {self.region} region...")
+
+#creating a cloud server object
+my_cloud_node = Cloudserver("Cloude_node_1","10.0.0.5","Ahmedabad")
+
+#which has the Original Server actions plus its own unique features
+my_cloud_node.start_server()
+
+# And its new specialized actions !!!
+my_cloud_node.deploy_app("Sakura_V1")
