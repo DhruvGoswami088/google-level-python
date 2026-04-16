@@ -1,16 +1,23 @@
+# perception.py - Refined Perception Module
 import requests
+
 def get_web_status():
-    """Fetches real-time data to verify internet perception"""
+    """Fetches real-time system data from a production-grade API."""
+    # Using GitHub's Public API for system verification
+    url = "https://api.github.com/zen" 
     
     try:
-        #Fetching a random professional quote a data test
-        response = requests.get("https://api.quotable.io/random", timeout=5)
+        response = requests.get(url, timeout=5)
+        # 200 is the industry 'OK' code
         if response.status_code == 200:
-            data = response.json()
-            return f"Perception Active :{data['content']}" 
-        return "Warning : Web service unreachable."
+            return f"Perception Active: {response.text}"
+        else:
+            return f"Service Alert: Received status {response.status_code}"
+            
+    except requests.exceptions.SSLError:
+        return "Security Alert: Target server has an invalid SSL certificate."
     except Exception as e:
-        return f"perception error: {e}"
-    
-    if __name__ == "__main__":
-        print(get_web_status())
+        return f"Perception Error: {e}"
+
+if __name__ == "__main__":
+    print(get_web_status())
