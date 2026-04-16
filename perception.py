@@ -21,3 +21,17 @@ def get_web_status():
 
 if __name__ == "__main__":
     print(get_web_status())
+
+# Advanced python : Data filtering with List Comprehensions 
+raw_logs = [
+       "INNFO : System Start",
+       "ERROR : Connection Failed",
+       "INFO  : Data Sync",
+       "ERROR : Access Denied",
+       "DEBUG : Cache Cleared"
+    ]
+#TASK : Extract Only Errors and Convert them to Uppercase
+critical_errors = [log.upper() for log in raw_logs if "ERROR" in log]
+print ("--- Critical System Errros ---")
+for error in critical_errors:
+    print(error)
